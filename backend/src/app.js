@@ -16,7 +16,7 @@ mongoose.connect('mongodb+srv://usuario-pruebas:root@cluster0.dhjvqys.mongodb.ne
 //MiddLeware
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(cors({origin:['http://localhost:3000']}))
+app.use(cors())
 
 //Rutas
 app.use('/api/', router)
