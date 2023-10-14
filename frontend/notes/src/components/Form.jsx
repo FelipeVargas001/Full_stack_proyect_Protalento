@@ -15,11 +15,11 @@ export default function Form({oldNote}){
         console.log(note)
     }
     const saveNote =async()=>{
-        const API_URL = process.env.REACT_APP_API_URL;
+
         let URL ='';
         let params ={}
         if (note._id){
-            URL=`${API_URL}/api/notes/` + note._id;
+            URL=`${process.env.REACT_APP_API_URL}/api/notes/` + note._id;
                 params={
                     method: 'PATCH',
                     body: JSON.stringify(note),
@@ -28,7 +28,7 @@ export default function Form({oldNote}){
                 } 
                 }
         }else{
-            URL=`${API_URL}/api/notes/`
+            URL=`${process.env.REACT_APP_API_URL}/api/notes/`
             params={
                 method: 'POST',
                 body: JSON.stringify(note),
@@ -43,7 +43,7 @@ export default function Form({oldNote}){
         e.preventDefault();
         saveNote()
         setNote({
-            'title':'',
+            title:'',
             content: ''
 
         })
