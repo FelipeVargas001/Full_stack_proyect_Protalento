@@ -6,11 +6,11 @@ import Form from '../components/Form';
 import Notes from '../components/Notes';
 
 export default function Index(){
-
+    const API_URL = process.env.REACT_APP_API_URL;
     const [notes, setNotes]=useState([])
     const [oldNote, setOldNote]=useState({})
     const getNotes= async()=>{
-        const response= await fetch('http://localhost:5000/api/notes')
+        const response= await fetch(`${API_URL}/api/notes`)
         const result= await response.json()
         setNotes (result)
     }
@@ -19,13 +19,13 @@ export default function Index(){
     },[notes])
 
     const deleteNote= async(id)=>{
-        await fetch('http://localhost:5000/api/notes/'+id,{
+        await fetch(`${API_URL}/api/notes/`+id,{
             method: 'DELETE',
             mode: 'cors'
         })
     }
     const getNote= async(id)=>{
-        const note= await fetch('http://localhost:5000/api/notes/'+id,)
+        const note= await fetch(`${API_URL}/api/notes/`+id,)
         const result= await note.json()
         setOldNote(result)
     }

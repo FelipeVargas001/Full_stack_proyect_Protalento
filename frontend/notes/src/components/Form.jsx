@@ -15,10 +15,11 @@ export default function Form({oldNote}){
         console.log(note)
     }
     const saveNote =async()=>{
+        const API_URL = process.env.REACT_APP_API_URL;
         let URL ='';
         let params ={}
         if (note._id){
-            URL='http://localhost:5000/api/notes/' + note._id;
+            URL=`${API_URL}/api/notes/` + note._id;
                 params={
                     method: 'PATCH',
                     body: JSON.stringify(note),
@@ -27,7 +28,7 @@ export default function Form({oldNote}){
                 } 
                 }
         }else{
-            URL='http://localhost:5000/api/notes/'
+            URL=`${API_URL}/api/notes/`
             params={
                 method: 'POST',
                 body: JSON.stringify(note),
