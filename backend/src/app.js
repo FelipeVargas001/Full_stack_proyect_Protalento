@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import morgan from "morgan"
 import router from "./routes/notesRoute.js"
 import cors from "cors"
+import 'dotenv/config'
 //";
 const app=express();
 
